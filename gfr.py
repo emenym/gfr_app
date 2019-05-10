@@ -12,7 +12,7 @@ Bootstrap(app)
 
 
 class GfrForm(FlaskForm):
-    scr = DecimalField("Serum Creatinine", validators=[DataRequired("SCR is required")])
+    scr = DecimalField("Serum Creatinine", validators=[DataRequired("Please enter a valid SCR")])
     # age = IntegerField("", validators=[DataRequired(),
     #                                    NumberRange(0, 120)])
     age = IntegerField("Age", validators=[DataRequired("Please enter a valid age"), NumberRange(min=1)])

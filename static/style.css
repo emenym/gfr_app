@@ -43,6 +43,14 @@ input{
 }
 
 canvas {
-  width: 100%;
-  height: auto;
+    width: 50%;
+    height: auto;
+    margin: auto;
+}
+.result-font {
+    font-size:2vw;
+    margin-bottom:0px;
+}
+.result-number {
+    font-size:3vw;
 }

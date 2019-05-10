@@ -18,7 +18,7 @@
 {% endblock %}
 
 {% import 'custom_macro.html' as wtfcustom %}
-{% import 'mikemacro.html' as mm %}
+{% import 'gfr_macro.html' as mm %}
 {% block content %}
     {{ super() }}
 
@@ -36,13 +36,11 @@
             </div>
 
             <div class="input-group col-sm-4 col-md-4 d-flex justify-content-center">
-                <div class="  flex-column">
+                <div class="flex-column">
                     {{ form.submit(class_="btn btn-primary form-control") }}
                     <input type="reset" class="btn btn-secondary form-control" style="margin-top:10px;" value="Reset" />
                 </div>
             </div>
-
-
         </div>
     </form>
 

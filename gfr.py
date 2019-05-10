@@ -20,6 +20,7 @@ class GfrForm(FlaskForm):
 
 
 @app.route('/gfr', methods=('GET', 'POST'))
+@app.route('/', methods=('GET', 'POST'))
 def submit():
     form = GfrForm(request.form)
     if form.validate_on_submit():

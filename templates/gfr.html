@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}GFR{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+{% endblock %}
+
+{% block nav_items %}
+    <li class="nav-item">
+        <a class="nav-link" href="https://kidneydietcentral.com/">KDC Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="gfr">GFR Estimator</a>
+    </li>
+
+{% endblock %}
+
+{% import 'custom_macro.html' as wtfcustom %}
+{% import 'mikemacro.html' as mm %}
+{% block content %}
+    {{ super() }}
+
+    <form method="POST" action="/gfr">
+        {{ form.csrf_token }}
+        <div class="container col-md-6" style="margin-top: 25px">
+            <h1>
+    Glomerular Filtration Rate Estimator
+</h1>
+            <div class="form-group">
+                {{ mm.gfr_form_field(form.scr) }}
+                {{ mm.gfr_form_field(form.age) }}
+                {{ mm.gfr_form_field(form.sex) }}
+                {{ mm.gfr_form_field(form.black) }}
+            </div>
+
+            <div class="input-group col-sm-4 col-md-4 d-flex justify-content-center">
+                <div class="  flex-column">
+                    {{ form.submit(class_="btn btn-primary form-control") }}
+                    <input type="reset" class="btn btn-secondary form-control" style="margin-top:10px;" value="Reset" />
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+
+
+
+
+
+{% endblock %}

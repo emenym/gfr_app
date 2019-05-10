@@ -1,0 +1,48 @@
+.navbar  {
+    background-color: 	#04315A;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+  background-color: #ff8c00;
+  color: white;
+}
+
+body {
+    background-color: linen;
+}
+
+h1 {
+    color: #04315A;
+}
+
+.form-group {
+    padding-left: 0;
+}
+
+.help-block { display: none; }
+.form-group.has-error .help-block { display: block; }
+
+.radio {
+    padding-right: 10px;
+}
+
+#submit{
+    padding-top: 5px;
+}
+
+.input-group{
+    flex
+}
+
+input{
+    text-align: right;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+}

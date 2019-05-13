@@ -10,6 +10,8 @@ app = Flask(__name__)
 app.secret_key = os.urandom(16)
 Bootstrap(app)
 
+DEBUG = os.environ.get("DEBUG", False)
+
 
 class GfrForm(FlaskForm):
     scr = DecimalField("Serum Creatinine", validators=[DataRequired("Please enter a valid SCR")])
@@ -19,9 +21,15 @@ class GfrForm(FlaskForm):
     submit = SubmitField('Estimate')
 
 
+def debug_print(debug_str):
+    if DEBUG:
+        print(debug_str)
+
+
 @app.route('/gfr', methods=('GET', 'POST'))
 @app.route('/', methods=('GET', 'POST'))
-def submit():
+def gfr():
+    debug_print("Enter gfr")
     form = GfrForm(request.form)
     if form.validate_on_submit():
         if request.method == 'POST':
@@ -30,12 +38,15 @@ def submit():
             sex = int(request.form['sex'])
             black = int(request.form['black'])
             gfr = calc_gfr(float(scr), age, sex, black)
+            debug_print("Rendering POST gfr_result")
             return render_template('gfr_result.html',
                                    egfr=gfr)
         else:
             scr = request.args.get('scr')
             gfr = calc_gfr(float(scr), 68, True, True)
+            debug_print("Rendering GET gfr_result")
             return "egfr : " + str(gfr)
+    debug_print("Rendering gfr")
     return render_template('gfr.html', form=form)
 
 
@@ -58,9 +69,9 @@ def calc_gfr(scr, age, female, black):
         gfr = gfr * 0.742
     if black:
         gfr = gfr * 1.212
+    debug_print("GFR Calculated: " + str(gfr))
     return round(gfr, 1)
     # GFR (mL/min/1.73 m2) = 175 × (Scr)-1.154 × (Age)-0.203 × (0.742 if female) × (1.212 if African American)
-
 
 
 if __name__ == "__main__":
@@ -68,4 +79,4 @@ if __name__ == "__main__":
     if port == '8080':
         app.run(host='0.0.0.0', port=port, debug=True)
     else:
-        app.run(host='0.0.0.0', port=port, debug=True)
+        app.run(host='0.0.0.0', port=port, debug=False)

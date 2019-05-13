@@ -33,6 +33,7 @@ def gfr():
     form = GfrForm(request.form)
     if form.validate_on_submit():
         if request.method == 'POST':
+            debug_print("Method = POST")
             scr = float(request.form['scr'])
             age = int(request.form['age'])
             sex = int(request.form['sex'])
@@ -42,10 +43,15 @@ def gfr():
             return render_template('gfr_result.html',
                                    egfr=gfr)
         else:
+            debug_print("Method = GET")
             scr = request.args.get('scr')
             gfr = calc_gfr(float(scr), 68, True, True)
             debug_print("Rendering GET gfr_result")
             return "egfr : " + str(gfr)
+    else:
+        for fieldName, errorMessages in form.errors.items():
+            for err in errorMessages:
+                debug_print(err + ' ' + errorMessages)
     debug_print("Rendering gfr")
     return render_template('gfr.html', form=form)
 

@@ -51,7 +51,7 @@ def gfr():
     else:
         for fieldName, errorMessages in form.errors.items():
             for err in errorMessages:
-                debug_print(err + ' ' + errorMessages)
+                debug_print(fieldName + ' ' + err)
     debug_print("Rendering gfr")
     return render_template('gfr.html', form=form)
 

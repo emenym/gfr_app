@@ -7,7 +7,7 @@ import os
 import math
 
 app = Flask(__name__)
-app.secret_key = os.urandom(16)
+app.secret_key = os.environ.get('SECRET_KEY', 'DEV_KEY')
 Bootstrap(app)
 
 DEBUG = os.environ.get("DEBUG", False)

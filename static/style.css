@@ -70,9 +70,16 @@ canvas {
     text-align: center;
   }
 
+/***/
   #creatinine
   {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center
+    margin-left: 170px;
+    margin-top: -19px;
   }
+
+  #creatinine > p
+  {
+    color:darkblue;
+    font-size: .7 rem;
+  }
+/***/

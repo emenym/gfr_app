@@ -28,6 +28,10 @@
             <h1>Glomerular Filtration Rate Estimator</h1>
             <div class="form-group">
                 {{ mm.gfr_form_field(form.scr)}}
+                <div id="creatinine">
+                    <p>Creatinine Norm: 0.7 - 1.3 mg/dL</p>
+                </div>
+
                 {{ mm.gfr_form_field(form.age) }}
                 {{ mm.gfr_form_field(form.sex) }}
                 {{ mm.gfr_form_field(form.black) }}
@@ -41,7 +45,6 @@
             </div>
         </div>
     </form>
-
 
 <div class = footer>
     <p> The equation for this calculator was taken from the National Institute of Diabetes and Digestive and

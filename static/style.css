@@ -55,20 +55,17 @@ canvas {
     font-size:3vw;
 }
 
-  .footer
+ /* .footer*/
+ #sticky-footer
   {
-    position: fixed;
+    margin-top: 50px;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: lightGray;
+    background-color: #04315a;
     color: white;
-    text-align: center;  position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
   }
+
 
 /***/
   #creatinine

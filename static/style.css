@@ -54,3 +54,25 @@ canvas {
 .result-number {
     font-size:3vw;
 }
+
+  .footer
+  {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightGray;
+    color: white;
+    text-align: center;  position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  #creatinine
+  {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center
+  }

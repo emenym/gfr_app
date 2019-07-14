@@ -58,12 +58,13 @@ canvas {
  /* .footer*/
  #sticky-footer
   {
-    margin-top: 50px;
+
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: #04315a;
     color: white;
+
   }
 
 
